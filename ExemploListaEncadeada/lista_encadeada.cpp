@@ -36,21 +36,27 @@ class Lista
         No* cabeca; //Primeiro elemento da lista
         No* cauda;  //Ultimo elemento da lista
     public:
+        //Construtor
         Lista()
         {
             cabeca = NULL;
             cauda = NULL;
         }
+
+        //Construtor
         Lista(int v)
         {
             cabeca = new No(v);
             cauda = cabeca;
         }
+
+        //Destrutor
         virtual ~Lista()
         {
             delete cabeca; //O destrutor deleta apenas a cabeca devido a alocação de memoria na linha 46
         }
 
+        //Mostrar todos elementos
         void mostrar()
         {
             cout << "\nImprimindo todos os elementos...\n";
@@ -75,6 +81,7 @@ class Lista
             return (cabeca == NULL); //Se houver elemento retorna FALSE, se não tiver, retorna TRUE
         }
 
+        //Insere elementos no incio
         void inserir_inicio(int v)
         {
             //Criando um novo nó
@@ -87,6 +94,7 @@ class Lista
             cabeca = novo_no;
         }
 
+        //Insere elementos no final
         void inserir_final(int v)
         {
             //Criando um novo nó
@@ -104,6 +112,7 @@ class Lista
             }
         }
 
+        //Retorna o tamanho da lista
         int tamanho()
         {
             if (this->vazia()) {
@@ -118,6 +127,60 @@ class Lista
                 tam++;
             }
             while(c);
+        }
+
+        //Retorna true or false referente se existe o valor na lista
+        bool existe(int v)
+        {
+            No *c = cabeca;
+            bool resposta = false;
+            while(c)
+            {
+                if (c->obterValor() == v) {
+                    resposta = true;
+                    return resposta;
+                }
+                else 
+                    c->obterProx();
+            }
+
+            return resposta;
+        }
+
+        void remover() //remocao do final
+        {
+            if (!vazia) {
+                //se houver só 1 elemento
+                if (cabeca->obterProx == NULL)
+                {
+                    cabeca = NULL;
+                }
+                //se houver 2 elementos
+                else if (cabeca->obterProx()->obterProx() == NULL)
+                {
+                    cabeca->setProx(NULL);
+                }
+                //se houver mais de 2 elementos
+                else
+                {
+                    No  *ant_ant = cabeca;
+                    No  *ant = cabeca->obterProx();
+                    No  *corrente = cabeca->obterProx()->obterProx();
+
+                    while(corrente)
+                    {
+                        No *aux = ant;
+                        ant = corrente;
+                        ant_ant = aux;
+                        corrente = corrente->obterProx(); //Ficar apontando para o próximo até que seja NULL
+                    }
+
+                    delete ant_ant->obterProx(); //Liberando memória do último elemento
+                    ant_ant->setProx(NULL); //Setando NULL no último elemento
+                    cauda = ant_ant; //Atualizando a cauda para apontar para o último elemento
+                }
+            }
+            
         }
 };
 
