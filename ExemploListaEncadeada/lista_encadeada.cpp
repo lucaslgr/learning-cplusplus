@@ -127,6 +127,7 @@ class Lista
                 tam++;
             }
             while(c);
+            return tam;
         }
 
         //Retorna true or false referente se existe o valor na lista
@@ -141,7 +142,7 @@ class Lista
                     return resposta;
                 }
                 else 
-                    c->obterProx();
+                    c = c->obterProx();
             }
 
             return resposta;
@@ -149,9 +150,9 @@ class Lista
 
         void remover() //remocao do final
         {
-            if (!vazia) {
+            if (!this->vazia()) {
                 //se houver só 1 elemento
-                if (cabeca->obterProx == NULL)
+                if (cabeca->obterProx() == NULL)
                 {
                     cabeca = NULL;
                 }
@@ -188,5 +189,47 @@ class Lista
 
 int main (int agrc, const char* agrv[])
 {
+    Lista l1;
+
+    if (l1.vazia())
+        cout << "Lista vazia!!\n";
+    else
+    {
+        cout << "Lista NÃO vazia!!\n";
+    }
+
+    l1.mostrar();
+
+    if (l1.existe(10)) 
+        cout << "\nO elemento 10 existe na lista!!\n";   
+    else
+        cout <<"O elemento 10 nao existe na lista!!";
+
+    l1.inserir_final(10);
+    l1.inserir_final(20);
+    l1.inserir_final(30);
+    l1.inserir_final(40);
+    l1.inserir_final(50);
+    l1.inserir_inicio(60); //ps: inserido no inicio
+
+    l1.mostrar();
+
+    if (l1.vazia())
+        cout << "Lista vazia!!\n";
+    else
+    {
+        cout << "Lista NAO vazia!!\n";
+    }
+
+    if (l1.existe(10))
+        cout << "\nO elemento 10 existe na lista!!\n";
+    else
+        cout << "O elemento 10 nao existe na lista!!";
+
+    l1.remover();
+    l1.mostrar();
+
+    cout << "Tamanho da lista: " << l1.tamanho() << endl;
+
     return 0;
 }
