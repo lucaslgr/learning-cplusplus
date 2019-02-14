@@ -1,8 +1,8 @@
-#Markdown
-#h1 Learning and Recall properties and concepts of programming language C and C++:
+# Markdown
+# h1 Learning and Recall properties and concepts of programming language C and C++:
 
 
-#h3 Commands to use in your terminal to compile your programs in GNU compiler:
+### h3 Commands to use in your terminal to compile your programs in GNU compiler:
     Compiling only a file.cpp:
     command -> g++ -o name.exe file.cpp
 
