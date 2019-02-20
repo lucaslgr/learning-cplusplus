@@ -19,7 +19,7 @@ typedef struct Pessoa
     struct Carro carro;
     struct Casa casa;
 
-} t_pessoa;
+} t_pessoa, p;
 
 int main(int agrc, const char *agrv[])
 {
