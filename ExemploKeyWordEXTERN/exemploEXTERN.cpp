@@ -1,4 +1,5 @@
 /*
+    KEYWORD EXTERN
     - O objetivo a keyword extern é ampliar a visibilidade de variáveis e funções
     - Por padrão, as funções já são compiladas como extern
 
