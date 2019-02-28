@@ -9,6 +9,8 @@
 */
 
 #include <iostream>
+#include <string>
+
 #define MAX 100
 
 using namespace std;
@@ -21,6 +23,7 @@ int main(int agrc, const char *agrv[])
     //cin >> nome; //Note que: dessa forma ele pega apenas a primeira palavra até encontrar um \n (espaço)
 
     cin.get(nome, MAX);
+
     cout << "Oi " << nome << endl;
 
     return 0;

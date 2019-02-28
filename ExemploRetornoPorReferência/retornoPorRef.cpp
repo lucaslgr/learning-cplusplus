@@ -1,4 +1,5 @@
 /*
+ ESTUDO DO RETORNO POR REFERÊNCIA EM UMA FUNÇÃO
  - O C++ permite que uma função faça esse tipo de retorno, que é o retorno por referência.
  - Implicitamente ela retorna um apontador implícito para o valor de retorno
  - Uma função que retorna uma referência, ela funciona como um apelido -> 'alias' para a variável
